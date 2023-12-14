@@ -1,7 +1,11 @@
 {
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
   "affected": {
-    "defaultBase": "master"
+    "defaultBase": "main"
+  },
+  "workspaceLayout": {
+    "appsDir": "apps",
+    "libsDir": "libs"
   },
   "targetDefaults": {
     "build": {
@@ -60,5 +64,6 @@
     "@nx/angular:component": {
       "style": "scss"
     }
-  }
+  },
+  "defaultProject": "nx-nf-plugin-example"
 }

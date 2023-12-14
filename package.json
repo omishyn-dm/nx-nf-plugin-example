@@ -106,7 +106,6 @@
     "@types/jasmine": "4.0.3",
     "@types/jasmine-ajax": "^3.3.2",
     "@types/jest": "^29.4.0",
-    "@types/jest": "^29.4.0",
     "@types/lodash-es": "^4.17.12",
     "@types/node": "18.16.9",
     "@types/tween.js": "17.2.0",
