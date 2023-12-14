@@ -1,0 +1,7 @@
+{
+  "name": "highcharts/highstock",
+  "types": "../highstock.d.ts",
+  "main": "../highstock.js",
+  "es2015": "../es5/highstock.js",
+  "sideEffects": false
+}

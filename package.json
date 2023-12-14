@@ -2,7 +2,10 @@
 	"name": "@nx-nf-plugin-example/source",
 	"version": "1.0.0",
 	"license": "MIT",
-	"scripts": {},
+	"scripts": {
+	  "fix-build-nf": "node ./nf-copy.js",
+	  "postinstall": "npm run fix-build-nf"
+	},
 	"private": true,
 	"dependencies": {
 		"@amcharts/amcharts4": "~4.10.38",

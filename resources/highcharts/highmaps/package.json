@@ -1,0 +1,7 @@
+{
+  "name": "highcharts/highmaps",
+  "types": "../highmaps.d.ts",
+  "main": "../highmaps.js",
+  "es2015": "../es5/highmaps.js",
+  "sideEffects": false
+}

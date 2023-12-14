@@ -1,0 +1,7 @@
+{
+  "name": "highcharts/highcharts-gantt",
+  "types": "../highcharts-gantt.d.ts",
+  "main": "../highcharts-gantt.js",
+  "es2015": "../es5/highcharts-gantt.js",
+  "sideEffects": false
+}
