@@ -2,21 +2,67 @@
 	"name": "host",
 	"$schema": "../../node_modules/nx/schemas/project-schema.json",
 	"projectType": "application",
-	"prefix": "nx-nf-plugin-example",
+	"prefix": "",
 	"sourceRoot": "apps/host/src",
 	"tags": [],
 	"targets": {
-		"build": {
-			"executor": "@angular-devkit/build-angular:application",
+    "build": {
+      "executor": "@angular-architects/native-federation:build",
+      "options": {},
+      "configurations": {
+        "local": {
+          "target": "host:esbuild:local",
+          "dev": true
+        },
+        "dev": {
+          "target": "host:esbuild:dev",
+          "dev": true
+        },
+        "production": {
+          "target": "host:esbuild:production",
+          "dev": false
+        }
+      },
+      "defaultConfiguration": "dev"
+    },
+		"esbuild": {
+      "executor": "@angular-devkit/build-angular:browser-esbuild",
 			"outputs": ["{options.outputPath}"],
 			"options": {
 				"outputPath": "dist/apps/host",
 				"index": "apps/host/src/index.html",
-				"browser": "apps/host/src/main.ts",
-				"polyfills": ["zone.js"],
+				"main": "apps/host/src/main.ts",
+        "polyfills": ["zone.js", "es-module-shims"],
 				"tsConfig": "apps/host/tsconfig.app.json",
 				"inlineStyleLanguage": "scss",
 				"assets": ["apps/host/src/favicon.ico", "apps/host/src/assets"],
+        "allowedCommonJsDependencies": [
+          "@babel/runtime",
+          "@bugsnag/browser",
+          "bowser",
+          "canvg",
+          "core-js",
+          "css-element-queries",
+          "detect-passive-events",
+          "exceljs",
+          "file-saver",
+          "highcharts",
+          "izitoast",
+          "lodash",
+          "lodash-es",
+          "moment",
+          "ngx-virtual-scroller",
+          "numeral",
+          "pdfmake/build/pdfmake.js",
+          "raf",
+          "rgbcolor",
+          "rxjs",
+          "shifty",
+          "util",
+          "word-wrap",
+          "xlsx",
+          "papaparse/papaparse.min.js"
+        ],
 				"styles": ["apps/host/src/styles.scss"],
 				"scripts": []
 			},
@@ -36,7 +82,7 @@
 					],
 					"outputHashing": "all"
 				},
-				"development": {
+				"dev": {
 					"optimization": false,
 					"extractLicenses": false,
 					"sourceMap": true
@@ -45,16 +91,14 @@
 			"defaultConfiguration": "production"
 		},
 		"serve": {
-			"executor": "@angular-devkit/build-angular:dev-server",
-			"configurations": {
-				"production": {
-					"buildTarget": "host:build:production"
-				},
-				"development": {
-					"buildTarget": "host:build:development"
-				}
-			},
-			"defaultConfiguration": "development"
+      "executor": "@angular-architects/native-federation:build",
+      "options": {
+        "target": "host:esbuild:local",
+        "rebuildDelay": 0,
+        "dev": true,
+        "open": false,
+        "port": 4200
+      }
 		},
 		"extract-i18n": {
 			"executor": "@angular-devkit/build-angular:extract-i18n",

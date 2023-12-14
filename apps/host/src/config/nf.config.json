@@ -1,0 +1,54 @@
+{
+	"host": {
+		"mfPages": [
+			"host"
+		],
+		"preloadAllModules": false,
+		"redirectTo": "host",
+		"bootstrapComponent": {
+			"exposedModule": "appContainerRoutes",
+			"reference": "remote1",
+			"port": 4201,
+			"env": "auto",
+			"versions": {
+				"default": "1.0.0"
+			}
+		},
+		"preloadModules": {
+
+		},
+		"envUrl": {
+			"default": {
+				"local": "http://localhost",
+				"dev": "http://localhosts",
+				"prod": "http://localhost"
+			}
+		},
+		"templateUrl": {
+			"local": "$url:$port/remoteEntry.js",
+			"dev": "$url:$port/remoteEntry.js",
+			"prod": "$url:$port/remoteEntry.js"
+		},
+		"rootPages": {
+			"host": {
+        "path": "",
+        "redirectTo": "host",
+        "children": {
+          "executive-overview": {
+            "exposedModule": "appContainerRoutes",
+            "reference": "remote2",
+            "path": "host",
+            "port": 4202,
+            "env": "auto",
+            "native": true,
+            "versions": {
+              "default": "1.0.0"
+            }
+          }
+        }
+      }
+		},
+		"autoEnvName": "dev"
+	},
+	"project": null
+}
